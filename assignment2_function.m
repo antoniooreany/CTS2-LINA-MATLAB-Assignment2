@@ -1,4 +1,4 @@
-function [outputArg1,outputArg2] = assignment2_function(n,q)
+function [] = assignment2_function(n,q)
 % grid on
 % axis equal
 % axis([-3,3,-3,3])
@@ -15,23 +15,21 @@ function [outputArg1,outputArg2] = assignment2_function(n,q)
 % imaginary unit, i.e. j.^2 = ?1.
 
 
-% TODO How to choose an appropriate scaling of both axis?
-
-n = 7;
-q = 2i;
+% n = 7;
+% q = 2i;
 
 %%%%%First solution%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-z = zeros(1, n);
-z(1) = q.^(1/n);
-disp(z(1));
-disp((z(1).^n));
-
-for i = 1:n - 1
-    z(i + 1) = z(1) * exp(1i * 2 * pi * i / n);
-    disp(z(i + 1));
-    disp((z(i + 1).^n));
-end
+% z = zeros(1, n);
+% z(1) = q.^(1/n);
+% disp(z(1));
+% disp((z(1).^n));
+% 
+% for i = 1:n - 1
+%     z(i + 1) = z(1) * exp(1i * 2 * pi * i / n);
+%     disp(z(i + 1));
+%     disp((z(i + 1).^n));
+% end
 
 %%%%%Second solution%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
@@ -40,16 +38,27 @@ eqn = z^n==q;
 sol = solve(eqn,z);
 
 for i = 1:n
-    fprintf('%f%+fj\n', real(sol(1)), imag(sol(1)));
+    fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));
 end
 
 plot(sol, '+');
+
+% TODO display all solutions on a circle line as output values; 
+
+% x = sin (0: .01: 2 * pi);
+% y = cos (0: .01: 2 * pi);
+% plot (x, y);
+% axis equal
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % disp(sol);
+
+% TODO How to choose an appropriate scaling of both axis?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-outputArg1 = sol;
-outputArg2 = 111;
+% outputArg1 = sol;
 
 end
 

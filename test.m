@@ -1,14 +1,25 @@
 
-n = 2;
-q = -1;
 
-syms z
-eqn = z^n==q;
-sol = solve(eqn,z);
+% f = @ (x, y) x ^ 2 + y ^ 2-25
+% ezplot (f)
+% axis equal
 
-fprintf('%f%+fj\n', sol);
-% fprintf('%f%+fj\n', real(sol(2)), imag(sol(2)));
 
-% disp(sol);
-plot(sol, '+');
+% x = sin (0: .01: 2 * pi);
+% y = cos (0: .01: 2 * pi);
+% plot (x, y);
+% axis equal
+
+
+x = sin (0: .01: 2 * pi);
+y = cos (0: .01: 2 * pi);
+plot (x, y);
+axis equal
+
+
+
+
+
+
+
 
