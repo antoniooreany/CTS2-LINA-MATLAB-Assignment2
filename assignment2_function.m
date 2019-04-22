@@ -1,7 +1,4 @@
 function [] = assignment2_function(n,q)
-% grid on
-% axis equal
-% axis([-3,3,-3,3])
 
 % Write a MATLAB-function that visualises all different n solutions 
 % to the equation z.^n = q, where z
@@ -12,13 +9,9 @@ function [] = assignment2_function(n,q)
 % Furthermore your function needs to list all solutions to z.^n = q 
 % in their algebraic representation, giving their real and imaginary parts.
 % Test your generated MATLAB le with the following equation z.^7 = +2j, where j is the
-% imaginary unit, i.e. j.^2 = ?1.
+% imaginary unit, i.e. j.^2 = -1.
 
-
-% n = 7;
-% q = 2i;
-
-%%%%%First solution%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%First solution: manual one %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
 % z = zeros(1, n);
 % z(1) = q.^(1/n);
@@ -31,17 +24,17 @@ function [] = assignment2_function(n,q)
 %     disp((z(i + 1).^n));
 % end
 
-%%%%%Second solution%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%Second solution: using MATLAB features %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
 
-syms z
-eqn = z^n==q;
-sol = solve(eqn,z);
+syms z                                                  % initialize variable
+eqn = z^n==q;                                           % initialize equation
+sol = solve(eqn,z);                                     % initialize solutions
 
 for i = 1:n
-    fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));
+    fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));    % print solutions to Command Window 
 end
 
-plot(sol, '+');
+plot(sol, '+');                                         % draw the solutions
 
 % TODO display all solutions on a circle line as output values; 
 
