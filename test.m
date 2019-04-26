@@ -12,7 +12,7 @@
 
 
 syms z                                                  % initialize variable
-eqn = z^pi==1;                                           % initialize equation
+eqn = z^pi==-1;                                           % initialize equation
 sol = solve(eqn,z);                                     % initialize solutions
 
 % for i = 1:n
@@ -20,7 +20,7 @@ sol = solve(eqn,z);                                     % initialize solutions
 % end
 
 plot(sol, '+');  
-
+disp(pi);
 
 
 
