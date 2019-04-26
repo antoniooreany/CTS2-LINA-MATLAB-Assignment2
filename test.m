@@ -11,19 +11,23 @@
 % axis equal
 
 
+% syms z                                                  % initialize variable
+% eqn = z^pi==-1;                                           % initialize equation
+% sol = solve(eqn,z);                                     % initialize solutions
+% 
+% % for i = 1:n
+% %     fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));    % print solutions to Command Window 
+% % end
+% 
+% plot(sol, '+');  
+% disp(pi);
+
+n=7;
+q=2;
 syms z                                                  % initialize variable
-eqn = z^pi==-1;                                           % initialize equation
-sol = solve(eqn,z);                                     % initialize solutions
-
-% for i = 1:n
-%     fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));    % print solutions to Command Window 
-% end
-
-plot(sol, '+');  
-disp(pi);
-
-
-
+eqn = z^n==q;                                           % initialize equation
+V = solve(eqn,z); 
+fprintf('%f%+fi\n', [real(V(:)), imag(V(:))].');
 
 
 

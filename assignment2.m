@@ -25,9 +25,7 @@ end
 %%%%% First solution: Manual one %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % z = zeros(1, n);
 % z(1) = q.^(1/n);
-% disp(z(1));
-% disp((z(1).^n));
-%
+
 % for i = 1:n - 1
 %     z(i + 1) = z(1) * exp(1i * 2 * pi * i / n);
 %     disp(z(i + 1));
@@ -35,15 +33,13 @@ end
 % end
 
 %%%%% Second solution: More general: Applicable for (the system of )(in)equalities %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
-syms z                                                  % initialize variable
-eqn = z^n==q;                                           % initialize equation
-sol = solve(eqn,z);                                     % initialize solutions
+syms z                                                  % Initialize variable
+eqn = z^n==q;                                           % Initialize equation
+sol = solve(eqn,z);                                     % Initialize solutions
 
-for i = 1:n
-    fprintf('%f%+fj\n', real(sol(i)), imag(sol(i)));    % print solutions to Command Window
-end
+fprintf('%f%+fi\n', [real(sol(:)), imag(sol(:))].');    % Print solutions to Command Window
 
-plot(sol, '+');                                         % draw the solutions
+plot(sol, '+');                                         % Draw the solutions
 hold on;                                                % retain plots in the current axes so that new plots added to the axes do not delete existing plots.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Draw a circle line: 
