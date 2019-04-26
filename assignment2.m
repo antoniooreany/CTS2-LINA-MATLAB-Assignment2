@@ -1,4 +1,3 @@
-function [] = assignment2(varargin)
 
 % Write a MATLAB-function that visualises all different n solutions
 % to the equation z.^n = q, where z
@@ -11,6 +10,9 @@ function [] = assignment2(varargin)
 % Test your generated MATLAB le with the following equation z.^7 = +2j, where j is the
 % imaginary unit, i.e. j.^2 = -1.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [] = assignment2(varargin)
 %%%%% Setting default values in case when no parameters are passed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin < 2   
     n = 7;                                              % set default values of equasion
@@ -52,9 +54,7 @@ y = radius * cos (angle);                               % Initialize a array of 
 plot (x, y);                                            % Draw all the points from the (x,y)-array.
 
 axis equal;                                             % use equal data unit lengths along each axis.
-
 % TODO How to choose an appropriate scaling of both axis?
-
 hold off;                                               % set the hold state to off so that new plots added to the axes clear existing plots and reset all axes properties.
 
 end
