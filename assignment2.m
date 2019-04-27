@@ -37,7 +37,7 @@ syms z                                                  % Initialize variable
 eqn = z^n==q;                                           % Initialize equation
 sol = solve(eqn,z);                                     % Initialize solutions
 
-fprintf('%f%+fi\n', [real(sol(:)), imag(sol(:))].');    % Print solutions to Command Window
+fprintf('%f + %fi\n', [real(sol), imag(sol)].');    % Print solutions to Command Window
 
 plot(sol, '*');                                         % Draw the solutions
 hold on;                                                % retain plots in the current axes so that new plots added to the axes do not delete existing plots.
