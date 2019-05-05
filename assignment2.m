@@ -16,7 +16,7 @@ function [] = assignment2(varargin)
 %%%%% Setting default values in case when no parameters are passed %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if nargin < 2
     n = 7;                                              % set default values of equation
-    q = 2;                                              % set default values of equation
+    q = 2i;                                              % set default values of equation
 else
     n = varargin{1};                                    % set values of equation from the function parameters
     q = varargin{2};                                    % set values of equation from the function parameters
@@ -37,13 +37,12 @@ syms z                                                  % Initialize variable
 eqn = z^n==q;                                           % Initialize equation
 sol = solve(eqn,z);                                     % Initialize solutions
 
-fprintf('%f + %fi\n', [real(sol), imag(sol)].');    % Print solutions to Command Window
-
+fprintf('%f%+fi\n', [real(sol), imag(sol)].');          % Print solutions to Command Window
 plot(sol, '*');                                         % Draw the solutions
 hold on;                                                % retain plots in the current axes so that new plots added to the axes do not delete existing plots.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Draw a circle line:
-radius = q.^(1/n);                                      % Initialize a radius of the circle.
+radius = abs(q)^(1/n);                                  % Initialize a radius of the circle.
 angle = 0: .01: 2 * pi;                                 % Initialize a array of angles for drawing the circle.
 x = radius * sin (angle);                               % Initialize a array of x-coordinates for drawing the circle.
 y = radius * cos (angle);                               % Initialize a array of y-coordinates for drawing the circle.
